@@ -3,7 +3,6 @@ function Api() {
     const [data, setData] = useState([]);
     const [selectedTitle, setSelectedTitle] = useState('');
     const [showImage, setShowImage] = useState(false);
-
     useEffect(() => {
         fetch('https://reyna.onrender.com/data')
             .then(response => response.json())
@@ -14,29 +13,25 @@ function Api() {
                 console.error('Error fetching data:', error);
             });
     }, []);
-   
     const handleTitleClick = (title) => {
         setSelectedTitle(title);
         setShowImage(true);
     };
-
     const tableStyle = {
+        
         width: '100%',
         borderCollapse: 'collapse',
     };
-
     const thStyle = {
         backgroundColor: '#0074d9',
         color: 'white',
         padding: '10px',
         textAlign: 'left',
     };
-
     const tdStyle = {
         padding: '10px',
         border: '1px solid #ddd',
     };
-
     return (
         <div>
             <h1 style={{ textAlign: 'center', fontSize: '24px', margin: '20px 0' }}>API Data in Table</h1>
@@ -77,5 +72,4 @@ function Api() {
         </div>
     );
 }
-
 export default Api;

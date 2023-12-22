@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import userData from './users_data.json';
 
 function UserForm() {
-  const [userData, setUserData] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
-
-  useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users').then((response) => {
-      setUserData(response.data);
-    });
-  }, []);
 
   const handleUserSelect = (userId) => {
     const user = userData.find((u) => u.id === userId);
     setSelectedUser(user);
   };
+
   return (
     <div>
       <h2>Select a User</h2>
